@@ -1,4 +1,6 @@
 import {defineType, defineArrayMember} from 'sanity'
+import {HighlightIcon, HighlightDecorator} from '../components/highlight'
+import {TitleStyle} from '../components/title'
 
 export default defineType({
   title: 'Block Content',
@@ -14,13 +16,20 @@ export default defineType({
       // use your content.
       styles: [
         {title: 'Normal', value: 'normal'},
+        {title: 'Title', value: 'title', component: TitleStyle},
         {title: 'H1', value: 'h1'},
         {title: 'H2', value: 'h2'},
         {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
+        {title: 'H5', value: 'h5'},
+        {title: 'H6', value: 'h6'},
         {title: 'Quote', value: 'blockquote'},
+        {title: 'Hidden', value: 'blockComment'},
       ],
-      lists: [{title: 'Bullet', value: 'bullet'}],
+      lists: [
+        {title: 'Bullet', value: 'bullet'},
+        {title: 'Numbered', value: 'number'},
+      ],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
@@ -28,6 +37,15 @@ export default defineType({
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
+          {title: 'Code', value: 'code'},
+          {title: 'Underline', value: 'underline'},
+          {title: 'Strike Through', value: 'strike-through'},
+          {
+            title: 'Highlight',
+            value: 'highlight',
+            icon: HighlightIcon,
+            component: HighlightDecorator,
+          },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
